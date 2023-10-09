@@ -11,7 +11,6 @@ display: flex;
  margin: 0px;
  padding: 0px;
  box-sizing: border-box;
- background-color: #f8e475;
 }
 
 
@@ -22,6 +21,8 @@ display: flex;
     justify-content: center;
     padding: 20px;
     margin: 0px;
+    top: 30px;
+    position: absolute;
 }
 
 
@@ -33,11 +34,99 @@ display: flex;
     color: #ffd90f;
     border: 1px solid #d8bb19;
     background-color: #ffd90f;
-    -webkit-text-stroke: 2px rgb(51, 50, 50);
+    -webkit-text-stroke: 2px rgb(83, 83, 83);
     border-radius: 6px;
     margin: 20px;
     padding: 0px;
     cursor: pointer;
+    transition: 0.3s ease;
+    
+
+}
+#botonmenu:hover{
+    transform: scale(115%);
 
 }
 
+#banerbody{
+    position: absolute;
+   right: 10px;
+   top: 150px;
+    height: 700px;
+    width: 400px;
+    background-color: #ffd90f;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+#containerinicio{
+    position: absolute;
+    top: 250px;
+    width: 1500px;
+    display: flex;
+    padding: 5px;
+    background-color: rgb(12, 12, 12, 0.85);
+    border-radius: 15px;
+    height: 520px;
+    left: 170px;
+
+
+}
+
+#columnainicio{
+    width: 30%;
+    margin: 23px;
+    border-radius: 15px;
+
+    
+}
+#fotogame{
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    opacity: 0.98;
+    cursor: pointer;
+
+   
+   
+}
+#fotogame:hover{
+    transform: scale(110%);
+    
+}
+
+
+#divranking{
+    width: 600px;
+    height: 1400px;
+    background-color: #ffd90f;
+    position: absolute;
+    top: 200px;
+    left: 650px;
+    align-items: center;
+    justify-content: center;
+    font-family: fontgame;
+    font-size: 30px;
+    color: #ffd90f;
+    -webkit-text-stroke: 2px rgb(83, 83, 83);
+    border-radius: 15px;
+
+
+}
+
+.prank{
+    text-align: center;
+
+}
+
+.posicion{
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+
+
+
+
+}
