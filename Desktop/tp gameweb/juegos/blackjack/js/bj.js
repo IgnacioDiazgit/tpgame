@@ -1,3 +1,5 @@
+
+                      /* globales */
 const cartas = {
     ac: { valor: 10, imagen: "./cartas/ac.jpg" },
     ap: { valor: 10, imagen: "./cartas/ap.jpg" },
@@ -80,15 +82,14 @@ const cartasmesa = document.getElementById("cartasmesa");
 const mensajemesa = document.getElementById("mensajemesa");
 const reset = document.getElementById("reset");
 
-
+                                           /* funciones del jueg */
 
   function cartasinicialesplayer(){
       for (let i = 0; i <= 1; i++) {
       let randomIndex = Math.floor(Math.random() * baraja.length);
       let carta = baraja.splice(randomIndex, 1)[0];
       mano_player.push(carta);
-      }
-                
+      }             
      for (let i = 0; i <= 1; i++) {
      let randomIndex = Math.floor(Math.random() * baraja.length);
      let carta = baraja.splice(randomIndex, 1)[0];
@@ -96,8 +97,6 @@ const reset = document.getElementById("reset");
                 }
             }
             
-
-
 
 
 function cartassumadas() {
@@ -129,6 +128,8 @@ function cartassumadas() {
 
 }
 
+
+
 function cartas_sumadas_crupier(){
     suma_crupier = 0;
     for (let i = 0; i < mano_crupier.length; i++) {
@@ -138,7 +139,10 @@ function cartas_sumadas_crupier(){
         }
 }
 
+
+
 function juego(){
+    mostrarcartas_crupier();
     const mensajemesa = document.getElementById("mensajemesa");
     const delay = 3000;
    
@@ -152,11 +156,13 @@ function juego(){
             mensajemesa.textContent = "Mi total es " + suma_crupier.toString()+" ganaste." ;}
         else if ( suma_crupier <= 16){
             setTimeout(function(){
-                mensajemesa.textContent = "Pido otra carta."
+                mensajemesa.textContent = "No puedo plantarme con "+suma_crupier.toString()+" ya que es menor a 16. Pido una carta."
+                pedir_carta_crupier();
+                suma_crupier();
+                juego();
+
             }, delay
             );
-            pedir_carta_crupier();
-            cartas_sumadas_crupier();
             
         }else if (suma_crupier >= 17 && suma_crupier < suma_player){
             setTimeout(function(){
@@ -167,8 +173,12 @@ function juego(){
                 mensajemesa.textContent = "Mi total es "+suma_crupier.toString()+" empatamos."
             },delay);
         }
+
+    
         
         }
+
+
         function reiniciarJuego() {
             reset.style.opacity = "0";
             reset.style.cursor = "default";
@@ -203,20 +213,51 @@ function juego(){
    let nuevacarta = baraja.splice(randomcard, 1)[0];
    mano_player.push(nuevacarta);
   cartassumadas();
+  mostrarcartas();
+ 
+
                     
 }
 function pedir_carta_crupier(){
     let randomcard = Math.floor(Math.random()*baraja.length);
     let nuevacarta_crupier = baraja.splice(randomcard, 1)[0];
     mano_crupier.push(nuevacarta_crupier);
-    juego();
+    mostrarcartas_crupier();
 }
 
-function mostrarCartas(){
 
-
-    
+function mostrarcartas() {
+    const contenedorCartas = document.getElementById("contenedorcartas");
+    contenedorCartas.innerHTML = "";
+    for (let i = 0; i < mano_player.length; i++) {
+        const cartaJugador = mano_player[i];
+        const imagenJugador = cartas[cartaJugador].imagen;
+        const cartaImagenJugador = document.createElement("img");
+        cartaImagenJugador.src = imagenJugador;
+        cartaImagenJugador.alt = cartaJugador;
+        cartaImagenJugador.style.width = "150px";
+        cartaImagenJugador.style.margin = "10px";
+        cartaImagenJugador.style.borderRadius = "5px";
+        contenedorCartas.appendChild(cartaImagenJugador);
+    }
 }
+
+function mostrarcartas_crupier(){
+    const cartasmesa = document.getElementById("cartasmesa");
+    cartasmesa.innerHTML = "";
+    for (let i = 0;i< mano_crupier.length; i++){
+        const cartacrupier = mano_crupier[i];
+        const imagencrupier = cartas[cartacrupier].imagen;
+        const cartaimagencrupier = document.createElement("img");
+        cartaimagencrupier.src = imagencrupier;
+        cartaimagencrupier.alt = cartacrupier;
+        cartaimagencrupier.style.width ="150px";
+        cartaimagencrupier.style.margin = "10px";
+        cartaimagencrupier.style.borderRadius = "5px";
+        cartasmesa.appendChild(cartaimagencrupier);
+    }
+}
+
 
 
                                                          /* iniciar el juego */
@@ -244,6 +285,7 @@ botonstarbj.addEventListener("click", function(){
     cerrarjuego.style.cursor = "pointer";
     cartasinicialesplayer();
     cartassumadas();
+    mostrarcartas();
    
 } );
 
@@ -269,6 +311,8 @@ cerrarjuego.addEventListener("click", function(){
     mano_crupier = [];
     suma_player = 0;
     suma_crupier = 0;
+    contenedorCartas.innerHTML = "";
+
     
     
     baraja.length = 0;
@@ -299,6 +343,7 @@ botonplantarse.addEventListener("click",function(){
     reset.style.cursor = "pointer";
     cartas_sumadas_crupier();
     juego();
+    mostrarcartas_crupier();
     
     
 
@@ -310,6 +355,10 @@ reset.addEventListener("click", function(){
     reiniciarJuego();
     cartasinicialesplayer();
     cartassumadas();
+    mostrarcartas();
+    
+    
+
     
 
 
