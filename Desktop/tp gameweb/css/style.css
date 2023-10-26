@@ -2,7 +2,10 @@
     font-family: fontgame;
     src: url(..//font/JumboSale\ Trial.otf);
 }
-
+@font-face {
+    font-family: magnetofont;
+    src: url(..//font/7382-fontps.ttf);
+}
 .body{
 background-image: url(..//fondo/fndo.jpg);
 background-repeat: no-repeat;
@@ -13,6 +16,22 @@ display: flex;
  box-sizing: border-box;
 }
 
+header {
+    background-color: rgb(0, 0, 0 , 0.5);
+    width: 100%;
+    height: 300px;
+}
+
+h1 {
+    left: 20px;
+    font-size: 85px;
+    font-family: magnetofont;
+    color: #d8bb19;
+    -webkit-text-stroke: 5px rgba(19, 18, 18, 0.8);
+    cursor: default;
+    
+
+}
 
 #menu {
     display: flex;
@@ -295,8 +314,7 @@ display: flex;
     position: absolute;
     border: 3px black solid;
     border-radius: 15px;
-    cursor: default;/*
-    font-family: fontgame;*/
+    cursor: default;
     color: #ffffff;
     -webkit-text-stroke: 2px black;
     font-size: 32px;
@@ -326,7 +344,7 @@ display: flex;
 
 #cartasmesa{
     position: absolute;
-    width: 770px;
+    width: 790px;
     height: 290px;
     border-radius: 15px;
     background-color:rgb(0, 0, 0 );
@@ -339,14 +357,59 @@ display: flex;
 }
 
 #mensajemesa{
+    display: flex;
     position: absolute;
     width: 350px;
-    height: 150px;
+    height: 420px;
     background-color: #d8bb19;
-    top: 100px;
+    top: 20px;
     left: 20px;
     border-radius: 15px;
     opacity: 0;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 50px;
+    font-size: 40px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#reset{
+    width: 225px;
+    height: 90px;
+    background-color: #f84134;
+    position: absolute;
+    bottom: 300px;
+    left: 1000px;
+    border: 4px rgb(36, 35, 35) solid;
+    border-radius: 15px;
+    cursor: default;
+    text-align: center;
+    font-family: fontgame;
+    color: #ffffff;
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
+    font-size: 30px;
+    opacity: 0;
+    box-shadow: 3px 3px 3px #3d100c;
+    transition: 0.3s ease;
+}
+
+#reset:hover{
+    transform: scale(107%);
+}
+
+#divpiedrapapeltijera{
+    position: absolute;
+    left: 2px;
+    opacity: 1;
+    top: 10px;
+    right: 10px;
+    width: 600px;
+    height: auto;
+    background-image: url(../juegos/piedrapapeltijera/banerppt.jpg);
+    background: no-repeat;
+    transition: 0.5s ease;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #041f0181;
+ 
+ 
 }
