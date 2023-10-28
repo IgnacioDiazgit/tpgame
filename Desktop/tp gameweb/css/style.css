@@ -407,6 +407,7 @@ h1 {
     background-size: cover;
     border-radius: 10px;
     box-shadow: 10px 10px 10px #041f0181;
+    z-index: 2;
 
  
 }
@@ -425,6 +426,9 @@ h1 {
     color: #db8f31;
     box-shadow:  2px 2px 2px rgb(44, 44, 44);
     cursor: pointer;
+    animation: boton_start 0.9s ease-in;
+    z-index: 2;
+  
 
 }
 
@@ -444,11 +448,11 @@ h1 {
     bottom: 160px;background-image: url(../juegos/piedrapapeltijera/piedra.png);
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow:  2px 2px 2px rgb(44, 44, 44);
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
     transition: 0.3s ease;
     cursor: default;
     opacity: 0;
-
+    z-index: 2;
 
 }
 #boton_piedra:hover{
@@ -465,10 +469,12 @@ h1 {
     background-image: url(../juegos/piedrapapeltijera/tijera.png);
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow:  2px 2px 2px rgb(44, 44, 44);
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
     transition: 0.3s ease;
     cursor: default;
     opacity: 0;
+    z-index: 2;
+   
 
 
 }
@@ -485,10 +491,13 @@ h1 {
     background-image: url(../juegos/piedrapapeltijera/papel.png);
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow:  2px 2px 2px rgb(44, 44, 44);
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
     transition: 0.3s ease;
     cursor: default;
     opacity: 0;
+    z-index: 2;
+   
+    
     
 }
 #boton_papel:hover{
@@ -509,6 +518,8 @@ h1 {
     font-size: 40px;
     color: #db8f31;
     -webkit-text-stroke: 2px #0c0703;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    z-index: 2;
 
 }
 
@@ -518,7 +529,7 @@ h1 {
     color: #33b8c7;
 }
 
-#reset{
+#resetppt{
     position: absolute;
     width: 140px;
     height: 80px;
@@ -527,12 +538,142 @@ h1 {
     left: 20px;
     bottom: 350px;
     opacity: 1;
+    font-size: 30px;
     transition: 0.3s ease;
     color: #db8f31;
     opacity: 0;
+    -webkit-text-stroke: 2px #0c0703;
+    font-family: fontgame;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    z-index: 2;
 }
-#reset:hover{
+#resetppt:hover{
     transform: scale(107%);
     background-color: #db8f31;
     color: #33b8c7;
+}
+
+@keyframes caida_piedra {
+    0% { transform: translateY(-900px);}
+    40% { transform: translateY(200px);}
+    60% {transform: translateY(-80px);}
+    90%{transform: translateY(0px);}
+    100%{transform: translateY(0);}
+}
+
+
+@keyframes caida_papel {
+    0% {
+        transform: translate(800px, -800px);
+    }
+    30% {
+        transform: translate(-10px, 0px);
+    }
+    45% {
+        transform: translate(70px, -200px);
+
+    }
+    100%{transform: translate(0,0);}
+}
+
+
+
+@keyframes caida_tijera {
+    0% {
+        transform: translate(-800px, -800px);
+    }
+    30% {
+        transform: translate(10px, 0px);
+    }
+    45% {
+        transform: translate(-70px, -200px);
+
+    }
+    100%{transform: translate(0,0);}
+}
+
+
+
+@keyframes boton_start{
+    0% { transform: translateX(-800px);}
+    50%{transform: translateX(200px);}
+    75%{transform: translateX(-200px);}
+    95%{transform: translateX(100px);}
+    100%{transform: translateX();}
+
+}
+#fondoppt{
+    position: absolute;
+    top: 220px;
+    left: 325px;
+    width: 1320px;
+    height: 720px;
+    background-image: url(../juegos/piedrapapeltijera/fondojuego.jpg);
+    border-radius: 15px;
+    z-index: 1;
+    opacity: 0;
+    overflow: hidden;
+}
+#mensajeppt{
+    position: absolute;
+    right: 300px;
+    top: 240px;
+    width: 1200px;
+    height: 70px;
+    z-index: 1;
+    color: #0c0703;
+    font-size: 50px;
+    background-color: #db8f31;
+    border-radius: 15px;
+    text-align: center;
+    font-family: fontgame;
+    opacity: 0;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+
+
+}
+
+#mesa_ppt{
+    position: absolute;
+    left:  400px;
+    top: 250px;
+    width: 1200px;
+    height: 600px;
+    z-index: 1;
+    color: #0c0703;
+    font-size: 50px;
+    background-color: rgb(51, 184, 199, 0.4);
+    border-radius: 15px;
+    opacity: 0.4;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+
+}
+
+#imgppt_player{
+    position: absolute;
+    left: 160px;
+    width: 400px;
+    height: 600px;
+   
+}
+#imgvsppt{
+    position: absolute;
+    left: 540px;
+    bottom: 600px;
+    width: 300px;
+    height: 600px;
+    background-image: url(../juegos/piedrapapeltijera/vs.png);
+    background-repeat: no-repeat;
+    background-position: -170px 1005px;
+    background-color: #33b8c7;
+    opacity: 1;
+}
+#imgppt_pc{
+    position: absolute;
+    left: 800px;
+    bottom: 1200px;
+    width: 500px;
+    height: 600px;
+    width: 400px;
+   
 }
