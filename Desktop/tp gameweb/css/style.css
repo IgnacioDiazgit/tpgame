@@ -1,3 +1,9 @@
+     
+     
+     
+     
+                                                /* estilos generales comunes */
+
 @font-face {
     font-family: fontgame;
     src: url(..//font/JumboSale\ Trial.otf);
@@ -92,65 +98,6 @@ h1 {
 
 
 }
-
-#columnainicio{
-    width: 30%;
-    margin: 23px;
-    border-radius: 15px;
-
-    
-}
-#fotogame{
-    width: 100%;
-    border: 3px solid black;
-    border-radius: 10px;
-    transition: 0.3s ease;
-    opacity: 0.98;
-    cursor: pointer;
-
-   
-   
-}
-#fotogame:hover{
-    transform: scale(110%);
-    
-}
-
-
-#divranking{
-    width: 600px;
-    height: 1400px;
-    background-color: #ffd90f;
-    position: absolute;
-    top: 200px;
-    left: 650px;
-    align-items: center;
-    justify-content: center;
-    font-family: fontgame;
-    font-size: 30px;
-    color: #ffd90f;
-    -webkit-text-stroke: 2px rgb(83, 83, 83);
-    border-radius: 15px;
-
-
-}
-
-.prank{
-    text-align: center;
-
-}
-
-.posicion{
-    font-size: 35px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-
-
-
-
-
-}
-
 .divgame{
     position: absolute;
     width: 70%;
@@ -172,6 +119,180 @@ h1 {
 
 
 }
+
+
+
+                                           /* pestaña juegos */
+#fotogame{
+    width: 100%;
+    border: 3px solid black;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    opacity: 0.98;
+    cursor: pointer;
+
+   
+   
+}
+#fotogame:hover{
+    transform: scale(110%);
+    
+}
+#columnainicio{
+    width: 30%;
+    margin: 23px;
+    border-radius: 15px;
+
+    
+}
+
+                                                   /* pestaña ranking */
+#divranking_bj{
+    width: 600px;
+    display: block;
+    background-color: rgb(256, 217, 15, 0.7);
+    position: absolute;
+    top: 500px;
+    left: 650px;
+    align-items: center;
+    justify-content: center;
+    font-family: fontgame;
+    font-size: 40px;
+    color: #ffd90f;
+    -webkit-text-stroke: 2px rgb(54, 52, 52);
+    border: 4px rgb(44, 44, 44) solid;
+    border-radius: 15px;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    opacity: 0;
+
+
+}
+#divranking_ppt{
+    width: 600px;
+    display: block;
+    background-color: rgb(256, 217, 15, 0.7);
+    position: absolute;
+    top: 500px;
+    left: 650px;
+    align-items: center;
+    justify-content: center;
+    font-family: fontgame;
+    font-size: 40px;
+    color: #ffd90f;
+    -webkit-text-stroke: 2px rgb(54, 52, 52);
+    border: 4px rgb(44, 44, 44) solid;
+    border-radius: 15px;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    opacity: 0;
+    
+
+
+}
+#divranking_pr{
+    width: 600px;
+    display: block;
+    background-color: rgb(256, 217, 15, 0.7);
+    position: absolute;
+    top: 500px;
+    left: 650px;
+    align-items: center;
+    justify-content: center;
+    font-family: fontgame;
+    font-size: 40px;
+    color: #ffd90f;
+    -webkit-text-stroke: 2px rgb(54, 52, 52);
+    border: 4px rgb(44, 44, 44) solid;
+    border-radius: 15px;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    opacity: 0;
+
+
+}
+
+.prank{
+    text-align: center;
+
+}
+
+.posicion{
+    font-size: 35px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#ranking_titulo{
+    border-bottom: 4px #0c0703 solid;
+   
+}
+
+
+#boton_ranking_bj{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 0, 0 , 0.9);
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    border-radius: 10px;
+    left: 500px;
+    top: 280px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    background-image: url(../juegos/blackjack/bjportada.jpg);
+    background-size: cover;
+    background-position: center -10px;
+    opacity: 0.9;
+}
+#boton_ranking_bj:hover{
+    transform: scale(110%);
+    opacity: 1;
+    
+}
+#boton_ranking_ppt{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 0, 0 , 0.9);
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    border-radius: 10px;
+    left: 800px;
+    top: 280px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    background-image: url(../juegos/piedrapapeltijera/banerppt2.jpg);
+    background-size: cover;
+    background-position: -48px center;
+    opacity: 0.9;
+
+
+}
+#boton_ranking_ppt:hover{
+    transform: scale(110%);
+    opacity: 1;
+    
+}
+#boton_ranking_pr{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 0, 0 , 0.9);
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    border-radius: 10px;
+    left: 1100px;
+    top: 280px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    background-image: url(../juegos/carrace/carportada.png);
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.9;
+}
+#boton_ranking_pr:hover{
+    transform: scale(110%);
+    opacity: 1;
+    
+}
+
+
+
+                                                    /* pestaña blackjack */
 
 .divbj{
     z-index: 2;
@@ -395,7 +516,7 @@ h1 {
 #reset:hover{
     transform: scale(107%);
 }
-
+                                       /* pestaña piedra papel tijera */
 #divpiedrapapeltijera{
     position: relative;
     left: 25px;
@@ -658,15 +779,15 @@ h1 {
 }
 #imgvsppt{
     position: absolute;
-    left: 540px;
-    bottom: 600px;
+    left: 900px;
+    bottom: 60px;
     width: 300px;
     height: 600px;
     background-image: url(../juegos/piedrapapeltijera/vs.png);
     background-repeat: no-repeat;
-    background-position: -170px 1005px;
-    background-color: #33b8c7;
-    opacity: 1;
+    background-size: cover;
+    background-position: center 50px;
+    opacity: 0;
 }
 #imgppt_pc{
     position: absolute;

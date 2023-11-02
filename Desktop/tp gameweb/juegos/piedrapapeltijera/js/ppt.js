@@ -16,6 +16,9 @@ const mensajeppt = document.getElementById("mensajeppt");
 
 const imgppt_player = document.getElementById("imgppt_player");
 const imgppt_pc = document.getElementById("imgppt_pc");
+const piedra = {imagen:"../juegos/piedra.jpg"};
+const tijera = { imagen: "../juegos/tijera.jpg"};
+const papel = { imagen: "../juegos/tijera.jpg"};
 
 
 
@@ -39,7 +42,6 @@ const imgppt_pc = document.getElementById("imgppt_pc");
 const ppt = ["piedra","papel","tijera"];
 let ppt_pc = "";
 let ppt_playerr = "";
-
 
 
 
@@ -126,6 +128,8 @@ cerrar_juego.addEventListener("click",function(){
     ppt_pc = "";
     mensajeppt.textContent = "";
     mensajeppt.style.opacity = "0";
+    imgvsppt.style.opacity = "0";
+    imgvsppt.style.zIndex = "0";
 
 
 })
@@ -134,30 +138,36 @@ resetppt.addEventListener("click",function(){
     ppt_pc = "";
     mensajeppt.textContent = "";
     mensajeppt.style.opacity = "0";
+    imgvsppt.style.opacity = "0";
+    imgvsppt.style.zIndex = "0";
 })
 
 boton_papel.addEventListener("click",function(){
     ppt_playerr = "papel";
-    imgvsppt.style.transition = "opacity 1s ease-in-out,transform 0.3s ease";
-    imgvsppt.style.opacity = "1";
+    mensajeppt.style.opacity = "0";
     mensajeppt.style.transition = "opacity 1s ease-in-out,transform 0.3s ease";
     mensajeppt.style.opacity = "0.8";
+    imgvsppt.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    imgvsppt.style.opacity = "1";
+    imgvsppt.style.zIndex = "3";
     juego_ppt();
 })
 boton_piedra.addEventListener("click",function(){
     ppt_playerr = "piedra";
-    imgvsppt.style.transition = "opacity 1s ease-in-out, transform 0.3ease";
-    imgvsppt.style.opacity ="1";
     mensajeppt.style.transition = "opacity 1s ease-in-out, transform 0.3ease";
     mensajeppt.style.opacity = "1";
+    imgvsppt.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    imgvsppt.style.opacity = "1";
+    imgvsppt.style.zIndex = "3";
     juego_ppt();
 })
 boton_tijera.addEventListener("click",function(){
     ppt_playerr = "tijera";
-    imgvsppt.style.transition = "opacity 1s ease-in-out, transform 0.3ease";
-    imgvsppt.style.opacity ="1";
     mensajeppt.style.transition = "opacity 1s ease-in-out, transform 0.3ease";
     mensajeppt.style.opacity = "1";
+    imgvsppt.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    imgvsppt.style.opacity = "1";
+    imgvsppt.style.zIndex = "3";
     juego_ppt();
 })
 
