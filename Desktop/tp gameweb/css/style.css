@@ -130,6 +130,7 @@ h1 {
     transition: 0.3s ease;
     opacity: 0.98;
     cursor: pointer;
+    
 
    
    
@@ -616,7 +617,7 @@ h1 {
     transition: 0.3s ease;
     cursor: default;
     opacity: 0;
-    z-index: 2;
+    z-index: 3;
    
     
     
@@ -740,7 +741,7 @@ h1 {
     right: 300px;
     top: 240px;
     width: 1200px;
-    height: 70px;
+    height: 57px;
     z-index: 1;
     color: #0c0703;
     font-size: 50px;
@@ -772,9 +773,14 @@ h1 {
 
 #imgppt_player{
     position: absolute;
-    left: 160px;
+    left: 520px;
+    top: 320px;
     width: 400px;
-    height: 600px;
+    height: 500px;
+    background-color: rgb(8, 8, 8, 0.3);
+    border-radius: 15px;
+    z-index: 1;
+    opacity: 0;
    
 }
 #imgvsppt{
@@ -788,13 +794,82 @@ h1 {
     background-size: cover;
     background-position: center 50px;
     opacity: 0;
+
 }
-#imgppt_pc{
+#imgppt_compu{
     position: absolute;
-    left: 800px;
-    bottom: 1200px;
-    width: 500px;
-    height: 600px;
+    left: 1180px;
+    top: 320px;
     width: 400px;
-   
+    height: 500px;
+    background-color: rgb(8, 8, 8, 0.3);
+    border-radius: 15px;
+    z-index: 1;
+    opacity: 0;
+}
+
+.ppt_imggame{
+    position: absolute;
+    margin: auto;
+    top: -40px;
+    left: 40px;
+    
+}
+#piedra_img{
+    opacity: 0;
+}
+#tijeras_img{
+    opacity: 0;
+}
+#papel_img{
+    opacity: 0;
+}
+#tijeras_img_pc{
+    opacity: 0;
+}
+#piedra_img_pc{
+    opacity: 0;
+}
+#papel_img_pc{
+    opacity: 0;
+}
+#contenedor_jugadas{
+    position: relative;
+    display: flex;
+    right: 400px;
+    bottom: -360px;
+    width: 1600px;
+    background-color: #33b8c7;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+.boton_jugadas{
+    display: flex;
+    width: 300px;
+    height: 100px;
+    background-color: #d8bb19;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #33b8c7;
+    transition: 0.3s ease;
+    color: #db8f31;
+    -webkit-text-stroke: 2px #0c0703;
+    font-family: fontgame;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    opacity: 0;
+    
+}
+
+.boton_jugadas:hover{
+    transform:  scale(107%);
+    color: #33b8c7;
+    background-color: #db8f31;
 }
