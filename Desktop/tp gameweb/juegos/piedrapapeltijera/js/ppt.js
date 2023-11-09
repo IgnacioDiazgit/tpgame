@@ -25,17 +25,7 @@ const piedra_img_pc = document.getElementById("piedra_img_pc");
 const papel_img_pc = document.getElementById("papel_img_pc");
 const tijeras_img_pc = document.getElementById("tijeras_img_pc");
 
-
-
-
-
-             
-             
-             
-             
-             
-             
-             
+   
              /* Piedra Papel Tijera */
 
 
@@ -46,7 +36,6 @@ let puntaje_ppt_player = "";
 let puntaje_ppt_pc = "";
 let rondas_ppt = "";
 let modo_ppt = "";
-
 
 
 function randompc(){
