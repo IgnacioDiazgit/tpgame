@@ -121,7 +121,8 @@ header {
     border: 3px solid #db8f31;
     font-size: 20px;
     transition: 0.3s ease;
-    
+    z-index: 1;
+
 
 
 
@@ -155,7 +156,9 @@ header {
     resize: none;
     padding: 15px;
     font-size: 20px;
-    transition: 0.4s ease;
+    transition: 0.7s ease;
+    z-index: 1;
+
 }
 #contenedor_mensaje:focus{
     transform: scale(120%);
@@ -181,9 +184,43 @@ header {
     box-shadow:  5px 5px 5px rgb(0, 0, 0);
     -webkit-text-stroke: 1px #0c0703;
     cursor: pointer;
+    z-index: 1;
 
 
 }
 #enviar_mensaje:hover{
     transform: scale(107%);
+}
+#mensaje_recibido{
+    display: flex;
+    position: absolute;
+    top: 350px;
+    left: 680px;
+    width: 500px;
+    height: 700px;
+    background-color: rgb(51, 184, 199, 0.85);
+    border: 3px solid #db8f31;
+    border-radius: 14px;
+    align-items: center;
+    justify-content: center;
+    font-family: fontgame;
+    font-size: 50px;
+    color: #db8f31;
+    text-align:  center;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    -webkit-text-stroke: 1px #0c0703;
+    opacity: 0;
+    z-index: 0;
+    cursor: default;
+   
+}
+#volver_mensaje{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    box-shadow:  4px 4px 4px rgb(32, 32, 32);
+    border: 2px solid #db8f31;
+    border-radius: 10px;
 }

@@ -24,6 +24,13 @@ const papel_img = document.getElementById("papel_img");
 const piedra_img_pc = document.getElementById("piedra_img_pc");
 const papel_img_pc = document.getElementById("papel_img_pc");
 const tijeras_img_pc = document.getElementById("tijeras_img_pc");
+const score_pc_total = document.getElementById("score_pc_total");
+const score_player_total = document.getElementById("score_player_total");
+const score_player = document.getElementById("score_player");
+const score_pc = document.getElementById("score_pc");
+const numero_rondas = document.getElementById("numero_rondas");
+const rondas = document.getElementById("rondas");
+
 
    
              /* Piedra Papel Tijera */
@@ -32,10 +39,18 @@ const tijeras_img_pc = document.getElementById("tijeras_img_pc");
 const ppt = ["piedra","papel","tijera"];
 let ppt_pc = "";
 let ppt_playerr = "";
-let puntaje_ppt_player = "";
-let puntaje_ppt_pc = "";
-let rondas_ppt = "";
+let puntaje_ppt_player = 0;
+let puntaje_ppt_pc = 0;
+let rondas_ppt = 0;
 let modo_ppt = "";
+boton_tijera.disabled = true;
+boton_papel.disabled = true;
+boton_piedra.disabled = true;
+resetppt.disabled = true;
+una_jugada.disabled = true;
+mejor_de_cinco.disabled = true;
+mejor_de_tres.disabled = true;
+
 
 
 function randompc(){
@@ -49,28 +64,47 @@ function juego_ppt(){
     piedra_img_pc.style.opacity = "0";
     tijeras_img_pc.style.opacity ="0";
     papel_img_pc.style.opacity ="0";
+    score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+    score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+    numero_rondas.textContent = " :  "+ rondas_ppt;
+    if (rondas_ppt === 9999999999){
+        borrar_todo_gameover();
+    }
 
 
     if ( ppt_playerr === ppt_pc) {
         mensajeppt.textContent = "Ambos elejimos "+ ppt_pc+" esto es un empate. ";
+        
 
     }else if (ppt_playerr === "piedra" && ppt_pc === "tijera" ){
         mensajeppt.textContent = "Sacaste  piedra y yo tijeras. Ganaste.";
+        puntaje_ppt_player +=1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
     
     }else if (ppt_playerr === "piedra" && ppt_pc === "papel"){
         mensajeppt.textContent = "Sacaste piedra y yo papel. Gane.";
+        puntaje_ppt_pc += 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
 
     }else if (ppt_playerr === "papel" && ppt_pc === "tijera"){
         mensajeppt.textContent = "Sacaste papel y yo tijeras. Gane.";
+        puntaje_ppt_pc += 1;
+        score_pc_total.textContent = " :   "+ puntaje_ppt_pc;
 
     }else if (ppt_playerr === "papel" && ppt_pc === "piedra"){
         mensajeppt.textContent = "Sacaste papel y yo piedra. Ganaste.";
+        puntaje_ppt_player +=1;
+        score_player_total.textContent = "  :  "+ puntaje_ppt_player;
 
     }else if (ppt_playerr === "tijera" && ppt_pc === "piedra"){
         mensajeppt.textContent = "Sacaste tijeras y yo piedra. Gane.";
+        puntaje_ppt_pc += 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
 
     }else if (ppt_playerr === "tijera" && ppt_pc === "papel"){
         mensajeppt.textContent = "Sacaste tijeras y yo papel. Ganaste.";
+        puntaje_ppt_player +=1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
 
     }
 
@@ -91,130 +125,135 @@ function juegoppt_mejor3(){
     piedra_img_pc.style.opacity = "0";
     tijeras_img_pc.style.opacity ="0";
     papel_img_pc.style.opacity ="0";
+    score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+    score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
     
+    numero_rondas.textContent = " : " + rondas_ppt;
 
-    if ( ppt_playerr === ppt_pc) {
-        mensajeppt.textContent = "Los dos elegimos "+ ppt_pc+" esto es un empate.... ";
-        
-
-    }else if (ppt_playerr === "piedra" && ppt_pc === "tijera" ){
-        mensajeppt.textContent = "Tu ganas este punto...";
-        puntaje_ppt_player += 1;
-        
-    
-    }else if (ppt_playerr === "piedra" && ppt_pc === "papel"){
-        mensajeppt.textContent = "Yo gano este punto!";
-        puntaje_ppt_pc += 1;
-        
-
-    }else if (ppt_playerr === "papel" && ppt_pc === "tijera"){
-        mensajeppt.textContent = "Yo gano este punto!";
-        puntaje_ppt_pc += 1;
-        
-
-    }else if (ppt_playerr === "papel" && ppt_pc === "piedra"){
-        mensajeppt.textContent = "Tu ganas este punto...";
-        puntaje_ppt_player += 1;
-        
-
-    }else if (ppt_playerr === "tijera" && ppt_pc === "piedra"){
-        mensajeppt.textContent = "Yo gano este punto!";
-        puntaje_ppt_pc += 1;
-        
-
-    }else if (ppt_playerr === "tijera" && ppt_pc === "papel"){
-        mensajeppt.textContent = "Tu ganas este punto...";
-        puntaje_ppt_player += 1;
-        
-
-    }else if (rondas_ppt === 3 && puntaje_ppt_player < puntaje_ppt_pc){
+    if (rondas_ppt === 3 && puntaje_ppt_player < puntaje_ppt_pc){
         mensajeppt.textContent = "Game Over... Yo  Gano!!!";
+        borrar_todo_gameover();
 
     }
     else if ( rondas_ppt === 3 && puntaje_ppt_player > puntaje_ppt_pc){
         mensajeppt.textContent = "Esta vez tu ganas....";
-    }else if (rondas_ppt ===3 && puntaje_ppt_player === puntaje_ppt_pc){
+        borrar_todo_gameover();
+        
+    }else if (rondas_ppt === 3 && puntaje_ppt_player === puntaje_ppt_pc){
         mensajeppt.textContent = "Empatamos... ";
+        borrar_todo_gameover();
     }
-
-    if (ppt_pc === "piedra"){
-        piedra_img_pc.style.opacity = "1";
-    }else if (ppt_pc === "tijera"){
-        tijeras_img_pc.style.opacity ="1";
-    }else if (ppt_pc === "papel"){
-        papel_img_pc.style.opacity ="1";
-    }
-    rondas_ppt += 1;
-
-}
-function juegoppt_mejor5(){
-    randompc();
-    const mensajeppt = document.getElementById("mensajeppt");
-    piedra_img_pc.style.opacity = "0";
-    tijeras_img_pc.style.opacity ="0";
-    papel_img_pc.style.opacity ="0";
+    
+    
 
     if ( ppt_playerr === ppt_pc) {
         mensajeppt.textContent = "Los dos elegimos "+ ppt_pc+" esto es un empate.... ";
-        rondas_ppt+= 1;
+        
 
     }else if (ppt_playerr === "piedra" && ppt_pc === "tijera" ){
         mensajeppt.textContent = "Tu ganas este punto...";
         puntaje_ppt_player += 1;
-        rondas_ppt+= 1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+        
     
     }else if (ppt_playerr === "piedra" && ppt_pc === "papel"){
         mensajeppt.textContent = "Yo gano este punto!";
         puntaje_ppt_pc += 1;
-        rondas_ppt+= 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+        
 
     }else if (ppt_playerr === "papel" && ppt_pc === "tijera"){
         mensajeppt.textContent = "Yo gano este punto!";
         puntaje_ppt_pc += 1;
-        rondas_ppt+= 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+        
 
     }else if (ppt_playerr === "papel" && ppt_pc === "piedra"){
         mensajeppt.textContent = "Tu ganas este punto...";
         puntaje_ppt_player += 1;
-        rondas_ppt+= 1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+        
 
     }else if (ppt_playerr === "tijera" && ppt_pc === "piedra"){
         mensajeppt.textContent = "Yo gano este punto!";
         puntaje_ppt_pc += 1;
-        rondas_ppt+= 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+        
 
     }else if (ppt_playerr === "tijera" && ppt_pc === "papel"){
         mensajeppt.textContent = "Tu ganas este punto...";
         puntaje_ppt_player += 1;
-        rondas_ppt+= 1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+        
 
-    }else if (rondas_ppt === 5 && puntaje_ppt_player < puntaje_ppt_pc){
+    }
+
+    if (ppt_pc === "piedra"){
+        piedra_img_pc.style.opacity = "1";
+    }else if (ppt_pc === "tijera"){
+        tijeras_img_pc.style.opacity ="1";
+    }else if (ppt_pc === "papel"){
+        papel_img_pc.style.opacity ="1";
+    }
+    
+
+}function juegoppt_mejor5(){
+    randompc();
+    piedra_img_pc.style.opacity = "0";
+    tijeras_img_pc.style.opacity ="0";
+    papel_img_pc.style.opacity ="0";
+    score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+    score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+    numero_rondas.textContent = " : " + rondas_ppt;
+
+    if (rondas_ppt === 5 && puntaje_ppt_player < puntaje_ppt_pc){
         mensajeppt.textContent = "Game Over... Yo  Gano!!!";
-        boton_piedra.style.opacity = "0";
-        boton_piedra.style.cursor = "default";
-        boton_papel.style.cursor = "default";
-        boton_papel.style.opacity = "0";
-        boton_tijera.style.opacity = "0";
-        boton_tijera.style.cursor = "default";
+        borrar_todo_gameover();
 
     }
     else if ( rondas_ppt === 5 && puntaje_ppt_player > puntaje_ppt_pc){
         mensajeppt.textContent = "Esta vez tu ganas....";
-        boton_piedra.style.opacity = "0";
-        boton_piedra.style.cursor = "default";
-        boton_papel.style.cursor = "default";
-        boton_papel.style.opacity = "0";
-        boton_tijera.style.opacity = "0";
-        boton_tijera.style.cursor = "default";
+        borrar_todo_gameover();
         
     }else if (rondas_ppt === 5 && puntaje_ppt_player === puntaje_ppt_pc){
         mensajeppt.textContent = "Empatamos... ";
-        boton_piedra.style.opacity = "0";
-        boton_piedra.style.cursor = "default";
-        boton_papel.style.cursor = "default";
-        boton_papel.style.opacity = "0";
-        boton_tijera.style.opacity = "0";
-        boton_tijera.style.cursor = "default";
+        borrar_todo_gameover();
+    }
+
+    if ( ppt_playerr === ppt_pc) {
+        mensajeppt.textContent = "Los dos elegimos "+ ppt_pc+" esto es un empate.... ";
+      
+
+    }else if (ppt_playerr === "piedra" && ppt_pc === "tijera" ){
+        mensajeppt.textContent = "Tu ganas este punto...";
+        puntaje_ppt_player += 1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+    
+    }else if (ppt_playerr === "piedra" && ppt_pc === "papel"){
+        mensajeppt.textContent = "Yo gano este punto!";
+        puntaje_ppt_pc += 1; 
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+
+    }else if (ppt_playerr === "papel" && ppt_pc === "tijera"){
+        mensajeppt.textContent = "Yo gano este punto!";
+        puntaje_ppt_pc += 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+
+    }else if (ppt_playerr === "papel" && ppt_pc === "piedra"){
+        mensajeppt.textContent = "Tu ganas este punto...";
+        puntaje_ppt_player += 1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+
+    }else if (ppt_playerr === "tijera" && ppt_pc === "piedra"){
+        mensajeppt.textContent = "Yo gano este punto!";
+        puntaje_ppt_pc += 1;
+        score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+
+    }else if (ppt_playerr === "tijera" && ppt_pc === "papel"){
+        mensajeppt.textContent = "Tu ganas este punto...";
+        puntaje_ppt_player += 1;
+        score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+
     }
 
     if (ppt_pc === "piedra"){
@@ -226,6 +265,7 @@ function juegoppt_mejor5(){
     }
 
 }
+
 
 
                 /* modos de juego */
@@ -293,8 +333,6 @@ cerrar_juego.addEventListener("click",function(){
     resetppt.style.opacity = "0";
     resetppt.style.cursor = "default";
     fondoppt.style.opacity ="0";
-    ppt_playerr = "";
-    ppt_pc = "";
     mensajeppt.textContent = "";
     mensajeppt.style.opacity = "0";
     imgvsppt.style.opacity = "0";
@@ -304,20 +342,23 @@ cerrar_juego.addEventListener("click",function(){
     borrar_botones_jugadas();
     ppt_playerr = "";
     ppt_pc = "";
-    puntaje_ppt_player = "";
-    puntaje_ppt_pc = "";
-    rondas_ppt = "";
+    reset_score();
     modo_ppt = "";
-
+    borrar_score();
+    score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+    score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+    boton_jugadas_off();
+   
 
 })
 resetppt.addEventListener("click",function(){
     ppt_playerr = "";
     ppt_pc = "";
-    puntaje_ppt_player = "";
-    puntaje_ppt_pc = "";
-    rondas_ppt = "";
     modo_ppt = "";
+    reset_score();
+    score_player_total.textContent = "  :   "+ puntaje_ppt_player;
+    score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
+    numero_rondas.textContent = " : "+ rondas_ppt;
     mensajeppt.textContent = "";
     mensajeppt.style.opacity = "0";
     imgvsppt.style.opacity = "0";
@@ -327,6 +368,8 @@ resetppt.addEventListener("click",function(){
     mostrar_botones_jugadas();
     resetppt.style.opacity = "0";
     borrar_botones_ppt();
+    borrar_score();
+    boton_ppt_off();
 })
 
 boton_papel.addEventListener("click",function(){
@@ -334,6 +377,7 @@ boton_papel.addEventListener("click",function(){
     reset_jugada_visual();
     papel_img.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     papel_img.style.opacity ="1";
+    rondas_ppt += 1;
 
     
 
@@ -343,6 +387,7 @@ boton_piedra.addEventListener("click",function(){
     reset_jugada_visual();
     piedra_img.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     piedra_img.style.opacity ="1";
+    rondas_ppt += 1;
 
 
 })
@@ -351,6 +396,7 @@ boton_tijera.addEventListener("click",function(){
     reset_jugada_visual();
     tijera_img.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     tijera_img.style.opacity ="1";
+    rondas_ppt += 1;
 
 })
 
@@ -360,33 +406,36 @@ boton_tijera.addEventListener("click",function(){
 
 una_jugada.addEventListener("click", function(){
     modo_ppt = "libre";
-    puntaje_ppt_player = "";
-    puntaje_ppt_pc = "";
-    rondas_ppt = "";
+    reset_score();
     borrar_botones_jugadas();
     mostrar_botones_ppt();
     modo_de_juego()
     animacion_inicio();
+    mostrar_score();
+    boton_ppt_on();
+    boton_jugadas_off();
 })
     mejor_de_cinco.addEventListener("click", function(){
     modo_ppt = "mejor_de_cinco";
-    puntaje_ppt_player = "";
-    puntaje_ppt_pc = "";
-    rondas_ppt = "";
+    reset_score();
     borrar_botones_jugadas();
     mostrar_botones_ppt();
     modo_de_juego();
     animacion_inicio();
+    mostrar_score();
+    boton_ppt_on();
+    boton_jugadas_off();
 })
     mejor_de_tres.addEventListener("click", function(){
     modo_ppt = "mejor_de_tres";
-    puntaje_ppt_player = "";
-    puntaje_ppt_pc = "";
-    rondas_ppt = "";
+    reset_score();
     borrar_botones_jugadas();
     mostrar_botones_ppt();
     modo_de_juego();
     animacion_inicio();
+    mostrar_score();
+    boton_ppt_on();
+    boton_jugadas_off();
 })
 
 function mostrar_botones_ppt(){
@@ -419,6 +468,9 @@ function borrar_botones_ppt(){
     boton_tijera.style.transition = "opacity 1.5s ease-in-out,transform 0.3s ease";
     boton_tijera.style.opacity = "0";
     boton_tijera.style.cursor = "default";
+    boton_tijera.disabled = false;
+    boton_papel.disabled = false;
+    boton_piedra.disabled = false;
 
 }
 function borrar_botones_jugadas(){
@@ -466,7 +518,75 @@ function reset_jugada_visual(){
     imgppt_player.style.opacity = "1";
     imgppt_compu.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     imgppt_compu.style.opacity = "1"
+
 }
+
+
+
+function borrar_score(){
+    score_pc.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    score_pc.style.opacity = "0";
+    score_player.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    score_player.style.opacity = "0";
+    rondas.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    rondas.style.opacity= "0" 
+
+
+}
+function mostrar_score(){
+    score_pc.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    score_pc.style.opacity = "1";
+    score_player.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    score_player.style.opacity = "1"; 
+    rondas.style.transition = "opacity 1s ease-in-out, transform 0.3s ease";
+    rondas.style.opacity= "1";
+
+}
+
+function borrar_todo_gameover(){
+        boton_piedra.style.opacity = "0";
+        boton_piedra.style.cursor = "default";
+        boton_piedra.disabled = true;
+        boton_papel.style.cursor = "default";
+        boton_papel.style.opacity = "0";
+        boton_papel.disabled = true;
+        boton_tijera.style.opacity = "0";
+        boton_tijera.style.cursor = "default";
+        boton_tijera.disabled = true;
+    }
+function boton_ppt_off(){
+    boton_tijera.disabled = true;
+boton_papel.disabled = true;
+boton_piedra.disabled = true;
+resetppt.disabled = true;
+}
+function boton_ppt_on(){
+    boton_tijera.disabled = false;
+    boton_papel.disabled = false;
+    boton_piedra.disabled = false;
+    resetppt.disabled = false;
+    
+}
+
+function boton_jugadas_on(){
+    una_jugada.disabled = false;
+    mejor_de_cinco.disabled = false;
+    mejor_de_tres.disabled = false;
+}
+function boton_jugadas_off(){
+    una_jugada.disabled = true;
+    mejor_de_cinco.disabled = true;
+    mejor_de_tres.disabled = true;
+}
+
+function reset_score(){
+    puntaje_ppt_player = 0;
+    puntaje_ppt_pc = 0;
+    rondas_ppt = 0;
+}
+
+
+
 
                                          /* animaciones */ 
 
@@ -483,3 +603,17 @@ function animacion_inicio(){
     cerrar_juego.style.animationDuration = "2.4s";
 
 }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

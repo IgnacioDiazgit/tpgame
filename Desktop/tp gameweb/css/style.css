@@ -64,13 +64,16 @@ header {
 
 #banerbody{
     position: absolute;
-   right: 10px;
-   top: 150px;
+    right: 500px;
+    top: 250px;
     height: 700px;
-    width: 400px;
-    background-color: #ffd90f;
+    width: 900px;
+    background-color: rgb(51, 184, 199, 0.6);
     opacity: 80%;
-    cursor: pointer;
+    cursor: default;
+    border-radius: 15px;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    border: 3px solid #db8f31;
 }
 
 #containerinicio{
@@ -79,7 +82,7 @@ header {
     width: 1500px;
     display: flex;
     padding: 5px;
-    background-color: rgb(12, 12, 12, 0.85);
+    background-color: rgb(51, 184, 199, 0.6);
     border-radius: 15px;
     height: 450px;
     left: 170px;

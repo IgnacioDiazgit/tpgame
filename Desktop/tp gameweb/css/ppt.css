@@ -22,6 +22,7 @@ header {
     background-color: rgb(0, 0, 0 , 0.5);
     width: 100%;
     height: 300px;
+    position: absolute;
 }
 
 
@@ -62,30 +63,6 @@ header {
 
 }
 
-#banerbody{
-    position: absolute;
-   right: 10px;
-   top: 150px;
-    height: 700px;
-    width: 400px;
-    background-color: #ffd90f;
-    opacity: 80%;
-    cursor: pointer;
-}
-
-#containerinicio{
-    position: absolute;
-    top: 250px;
-    width: 1500px;
-    display: flex;
-    padding: 5px;
-    background-color: rgb(12, 12, 12, 0.85);
-    border-radius: 15px;
-    height: 450px;
-    left: 170px;
-   
-
-}
 .divgame{
     position: absolute;
     width: 70%;
@@ -124,9 +101,10 @@ header {
 }
 
 #botonstarppt{
-    position: absolute;
+    position: relative;
     border-radius: 5px;
-    bottom: 40px;
+    top: 30%;
+    right: 50%;
     width: 200px;
     height: 70px;
     transition: 0.3s ease;
@@ -155,8 +133,9 @@ header {
     height: 130px;
     border-radius: 50%;
     background-color: white;
+    bottom: 170px;
     left: 110px;
-    bottom: 160px;background-image: url(../juegos/piedrapapeltijera/piedra.png);
+    background-image: url(../juegos/piedrapapeltijera/piedra.png);
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow:  5px 5px 5px rgb(44, 44, 44);
@@ -168,9 +147,11 @@ header {
 }
 #boton_piedra:hover{
     transform: scale(107%);
+    border: 5px solid #db8f31;
 }
 
-#boton_tijera{position: absolute;
+#boton_tijera{
+    position: absolute;
     left: 35px;
     bottom: 40px;
     width: 130px;
@@ -191,6 +172,7 @@ header {
 }
 #boton_tijera:hover{
     transform: scale(107%);
+    border: 5px solid #db8f31;
 
 }
 #boton_papel{position: absolute;
@@ -213,6 +195,7 @@ header {
 }
 #boton_papel:hover{
     transform: scale(107%);
+    border: 5px solid #db8f31;
 }
 
 #cerrar_juego{
@@ -221,7 +204,7 @@ header {
     height: 50px;
     border-radius: 50%;
     background-color: #33b8c7;
-    right: 50px;
+    left: 1200px;
     bottom: 20px;
     opacity: 0;
     transition: 0.3s ease;
@@ -327,7 +310,7 @@ header {
 }
 #mensajeppt{
     position: absolute;
-    right: 300px;
+    left: 370px;
     top: 240px;
     width: 1200px;
     height: 57px;
@@ -375,7 +358,7 @@ header {
 #imgvsppt{
     position: absolute;
     left: 900px;
-    bottom: 60px;
+    top: 270px;
     width: 300px;
     height: 600px;
     background-image: url(../juegos/piedrapapeltijera/vs.png);
@@ -423,15 +406,14 @@ header {
     opacity: 0;
 }
 #contenedor_jugadas{
-    position: relative;
-    display: flex;
-    right: 400px;
-    bottom: -360px;
-    width: 1600px;
-    background-color: #33b8c7;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    display: table-column;
+    left: 20px;
+    top: 400px;
+    width: 100%;
+    z-index: 10;
+    width: 320px;
+
   
 
 }
@@ -454,11 +436,118 @@ header {
     align-items: center;
     cursor: default;
     opacity: 0;
-    
+    right: 200px;
+
+
 }
 
 .boton_jugadas:hover{
     transform:  scale(107%);
     color: #33b8c7;
     background-color: #db8f31;
+}
+#score_player{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(51, 184, 199, 0.85);
+    top: 450px;
+    left: 630px;
+    border-radius: 10px;
+    text-align: center;
+    color: #db8f31;
+    font-size: 40px;
+    -webkit-text-stroke: 2px #0c0703;
+    font-family: fontgame;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: 2px solid black;
+    cursor: default;
+    opacity: 0;
+}
+#score_pc{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(51, 184, 199, 0.85);
+    z-index: 10;
+    top: 450px;
+    left: 1260px;
+    border-radius: 10px;
+    text-align: center;
+    color: #db8f31;
+    font-size: 40px;
+    -webkit-text-stroke: 2px #0c0703;
+    font-family: fontgame;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    opacity: 0;
+    cursor: default;
+
+}
+#rondas{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(51, 184, 199, 0.85);
+    z-index: 10;
+    top: 450px;
+    left: 940px;
+    border-radius: 10px;
+    text-align: center;
+    color: #db8f31;
+    font-size: 40px;
+    -webkit-text-stroke: 2px #0c0703;
+    font-family: fontgame;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    opacity: 0;
+    cursor: default;
+
+}
+#score_pc_total{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+#score_player_total{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+#score_pc{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(51, 184, 199, 0.85);
+    z-index: 10;
+    top: 450px;
+    left: 1260px;
+    border-radius: 10px;
+    text-align: center;
+    color: #db8f31;
+    font-size: 40px;
+    -webkit-text-stroke: 2px #0c0703;
+    font-family: fontgame;
+    box-shadow:  5px 5px 5px rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    opacity: 0;
+    cursor: default;
+
+}
+
+#numero_rondas{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+
 }
