@@ -30,7 +30,13 @@ const score_player = document.getElementById("score_player");
 const score_pc = document.getElementById("score_pc");
 const numero_rondas = document.getElementById("numero_rondas");
 const rondas = document.getElementById("rondas");
-
+const ganaste_sonido_ppt = document.getElementById("ganaste_sonido_ppt");
+const perdiste_sonido_ppt = document.getElementById("perdiste_sonido_ppt");
+const musica_fondo_ppt = document.getElementById("musica_fondo_ppt");
+const sonido_botones_ppt = document.getElementById("sonido_botones_ppt");
+const fondo_ganaste = document.getElementById("fondo_ganaste");
+const fondo_perdiste = document.getElementById("fondo_perdiste");
+const fondo_empatamos = document.getElementById("fondo_empatamos");
 
    
              /* Piedra Papel Tijera */
@@ -120,8 +126,7 @@ function juego_ppt(){
 
                             /* mejor de 3 */
 function juegoppt_mejor3(){
-    randompc();
-    const mensajeppt = document.getElementById("mensajeppt");
+    randompc(); 
     piedra_img_pc.style.opacity = "0";
     tijeras_img_pc.style.opacity ="0";
     papel_img_pc.style.opacity ="0";
@@ -130,24 +135,43 @@ function juegoppt_mejor3(){
     
     numero_rondas.textContent = " : " + rondas_ppt;
 
-    if (rondas_ppt === 3 && puntaje_ppt_player < puntaje_ppt_pc){
-        mensajeppt.textContent = "Game Over... Yo  Gano!!!";
+    if ( puntaje_ppt_player < puntaje_ppt_pc  && rondas_ppt === 3){
+        fondo_perdiste.style.transition = "2.5s ease";
+        fondo_perdiste.style.opacity = "1";
+        fondo_perdiste.zIndex = "10";
+        perdiste_sonido_ppt.play();
+        perdiste_sonido_ppt.volume = 0.2;
+        musica_fondo_ppt.pause();
         borrar_todo_gameover();
+        imgvsppt.style.opacity = "0";
+        imgvsppt.style.zIndex = "0";
 
     }
-    else if ( rondas_ppt === 3 && puntaje_ppt_player > puntaje_ppt_pc){
-        mensajeppt.textContent = "Esta vez tu ganas....";
+    else if ( puntaje_ppt_player > puntaje_ppt_pc  && rondas_ppt === 3){
+        fondo_ganaste.style.transition = "2.5s ease";
+        fondo_ganaste.style.opacity = "1";
+        fondo_ganaste.zIndex = "10";
+        ganaste_sonido_ppt.play();
+        ganaste_sonido_ppt.volume = 0.2;
+        musica_fondo_ppt.pause();
         borrar_todo_gameover();
+        imgvsppt.style.opacity = "0";
+        imgvsppt.style.zIndex = "0";
         
-    }else if (rondas_ppt === 3 && puntaje_ppt_player === puntaje_ppt_pc){
-        mensajeppt.textContent = "Empatamos... ";
+    }else if ( puntaje_ppt_player === puntaje_ppt_pc && rondas_ppt === 3){
+        fondo_empatamos.style.opacity = "1";
+        fondo_empatamos.zIndex = "10";
         borrar_todo_gameover();
+        imgvsppt.style.opacity = "0";
+        imgvsppt.style.zIndex = "0";
     }
     
     
 
     if ( ppt_playerr === ppt_pc) {
         mensajeppt.textContent = "Los dos elegimos "+ ppt_pc+" esto es un empate.... ";
+        puntaje_ppt_pc += 0;
+        puntaje_ppt_player += 0; 
         
 
     }else if (ppt_playerr === "piedra" && ppt_pc === "tijera" ){
@@ -321,6 +345,8 @@ botonstarppt.addEventListener("click",function(){
     divpiedrapapeltijera.style.opacity = "0";
     fondoppt.style.transition = "opacity 1s ease-in-out,transform 0.3s ease";
     fondoppt.style.opacity ="1";
+    musica_fondo_ppt.play();
+    musica_fondo_ppt.volume = 0.2;
 
 }) 
 cerrar_juego.addEventListener("click",function(){
@@ -348,6 +374,16 @@ cerrar_juego.addEventListener("click",function(){
     score_player_total.textContent = "  :   "+ puntaje_ppt_player;
     score_pc_total.textContent = "  :   "+ puntaje_ppt_pc;
     boton_jugadas_off();
+    musica_fondo_ppt.pause();
+    musica_fondo_ppt.currentTime = 0;
+    fondo_ganaste.style.opacity = "0";
+    fondo_ganaste.zIndex = "0";
+    fondo_perdiste.style.opacity = "0";
+    fondo_perdiste.zIndex = "0";
+    fondo_empatamos.style.opacity = "0";
+    fondo_empatamos.zIndex = "0";
+    perdiste_sonido_ppt.pause();
+    perdiste_sonido_ppt.currentTime = 0;
    
 
 })
@@ -370,6 +406,17 @@ resetppt.addEventListener("click",function(){
     borrar_botones_ppt();
     borrar_score();
     boton_ppt_off();
+    fondo_ganaste.style.opacity = "0";
+    fondo_ganaste.zIndex = "0";
+    fondo_perdiste.style.opacity = "0";
+    fondo_perdiste.zIndex = "0";
+    fondo_empatamos.style.opacity = "0";
+    fondo_empatamos.zIndex = "0";
+    perdiste_sonido_ppt.pause();
+    perdiste_sonido_ppt.currentTime = 0;
+    musica_fondo_ppt.play();
+    ganaste_sonido_ppt.pause();
+    ganaste_sonido_ppt.currentTime = 0;
 })
 
 boton_papel.addEventListener("click",function(){
@@ -378,6 +425,7 @@ boton_papel.addEventListener("click",function(){
     papel_img.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     papel_img.style.opacity ="1";
     rondas_ppt += 1;
+    sonido_botones();
 
     
 
@@ -388,6 +436,7 @@ boton_piedra.addEventListener("click",function(){
     piedra_img.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     piedra_img.style.opacity ="1";
     rondas_ppt += 1;
+    sonido_botones();
 
 
 })
@@ -397,6 +446,8 @@ boton_tijera.addEventListener("click",function(){
     tijera_img.transition = "opacity 1s ease-in-out, transform 0.3s ease";
     tijera_img.style.opacity ="1";
     rondas_ppt += 1;
+    sonido_botones();
+    
 
 })
 
@@ -414,6 +465,7 @@ una_jugada.addEventListener("click", function(){
     mostrar_score();
     boton_ppt_on();
     boton_jugadas_off();
+    musica_fondo_ppt.volume = 0.13;
 })
     mejor_de_cinco.addEventListener("click", function(){
     modo_ppt = "mejor_de_cinco";
@@ -425,6 +477,7 @@ una_jugada.addEventListener("click", function(){
     mostrar_score();
     boton_ppt_on();
     boton_jugadas_off();
+    musica_fondo_ppt.volume = 0.13;
 })
     mejor_de_tres.addEventListener("click", function(){
     modo_ppt = "mejor_de_tres";
@@ -436,6 +489,7 @@ una_jugada.addEventListener("click", function(){
     mostrar_score();
     boton_ppt_on();
     boton_jugadas_off();
+    musica_fondo_ppt.volume = 0.13;
 })
 
 function mostrar_botones_ppt(){
@@ -584,7 +638,11 @@ function reset_score(){
     puntaje_ppt_pc = 0;
     rondas_ppt = 0;
 }
-
+function sonido_botones(){
+    sonido_botones_ppt.currentTime = 0;
+    sonido_botones_ppt.playbackRate = 1.8;
+    sonido_botones_ppt.play();
+}
 
 
 
