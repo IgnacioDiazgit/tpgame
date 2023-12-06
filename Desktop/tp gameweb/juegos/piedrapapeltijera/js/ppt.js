@@ -135,6 +135,7 @@ function juegoppt_mejor3(){
     
     numero_rondas.textContent = " : " + rondas_ppt;
 
+
     if ( puntaje_ppt_player < puntaje_ppt_pc  && rondas_ppt === 3){
         fondo_perdiste.style.transition = "2.5s ease";
         fondo_perdiste.style.opacity = "1";
@@ -221,7 +222,9 @@ function juegoppt_mejor3(){
     }
     
 
-}function juegoppt_mejor5(){
+}
+
+function juegoppt_mejor5(){
     randompc();
     piedra_img_pc.style.opacity = "0";
     tijeras_img_pc.style.opacity ="0";

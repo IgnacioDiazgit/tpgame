@@ -310,8 +310,8 @@ header {
 }
 #mensajeppt{
     position: absolute;
-    left: 370px;
-    top: 240px;
+    left: 400px;
+    top: 260px;
     width: 1200px;
     height: 57px;
     z-index: 1;
@@ -550,4 +550,36 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 40px;
 
+}
+#fondo_ganaste{
+    position: absolute;
+    top: 260px;
+    left: 400px;
+    z-index: 1;
+    width: 1200px;
+    height: 600px;
+    opacity: 0;
+    border-radius: 15px;
+    
+}
+#fondo_empatamos{
+    position: absolute;
+    top: 260px;
+    left: 400px;
+    z-index: 1;
+    width: 1200px;
+    height: 600px;
+    opacity: 0;
+    border-radius: 15px;
+    
+}#fondo_perdiste{
+    position: absolute;
+    top: 260px;
+    left: 400px;
+    z-index: 1;
+    width: 1200px;
+    height: 600px;
+    opacity: 0;
+    border-radius: 15px;
+    
 }
